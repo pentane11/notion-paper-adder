@@ -10,10 +10,10 @@ jobs:
 
     steps:
     - name: Check out repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4 # 更新
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5 # 更新
       with:
         python-version: '3.10' # 使用するPythonのバージョン
 
@@ -27,7 +27,7 @@ jobs:
         pyinstaller --onefile --windowed --name "Notion論文追加ツール" GetPapersDatatoNotion_app.py
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4 # ★★★ ここが一番重要な修正点です ★★★
       with:
         name: Notion論文追加ツール-exe
         path: dist/Notion論文追加ツール.exe # 完成した.exeファイルの場所
